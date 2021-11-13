@@ -4,10 +4,12 @@ import { PieChart, Pie, Tooltip } from "recharts";
 const PieCharts = ({ subscribed }) => {
   return (
     <div>
+      {/* start of pie chart component */}
       <PieChart width={1000} height={400}>
         <Pie
           dataKey="subscriptions"
           isAnimationActive={false}
+          //calling the data resource "subscribed" as props
           data={subscribed}
           cx="50%"
           cy="50%"
@@ -18,6 +20,7 @@ const PieCharts = ({ subscribed }) => {
 
         <Tooltip />
       </PieChart>
+      {/* end of pie chart component */}
     </div>
   );
 };

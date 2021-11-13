@@ -12,9 +12,11 @@ import {
 const BarCharts = ({ data }) => {
   return (
     <div>
+      {/* start of barchart component */}
       <BarChart
         width={700}
         height={400}
+        //calling the data resource "data" as props
         data={data}
         margin={{
           top: 5,
@@ -31,6 +33,7 @@ const BarCharts = ({ data }) => {
         <Bar dataKey="subscribed" fill="#8884d8" />
         <Bar dataKey="unSubscribed" fill="#82ca9d" />
       </BarChart>
+      {/* end of barchart component */}
     </div>
   );
 };

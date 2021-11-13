@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 const Navbar = () => {
   return (
     <div>
+      {/* start of Navbar component */}
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar variant="dense">
@@ -16,6 +17,7 @@ const Navbar = () => {
           </Toolbar>
         </AppBar>
       </Box>
+      {/* end of navbar component */}
     </div>
   );
 };

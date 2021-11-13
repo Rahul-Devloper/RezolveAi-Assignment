@@ -4,6 +4,7 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 
+//material ui code for grid items
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
@@ -11,19 +12,25 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
+//start of Grids Component
 const Grids = ({ data }) => {
+  //Obtaining max value for each query
+
+  //getting the max value of the total number of users added
   const amountTotal = data.map((a) => a.total);
   let latestTotal = Math.max(...amountTotal);
-  console.log(latestTotal);
 
+  //getting the max value of the no. of active users
   const amountActive = data.map((a) => a.active);
   let latestActive = Math.max(...amountActive);
 
+  //getting the max value of the no. of subscriptions
   const amountSubscribed = data.map((a) => a.subscribed);
   let latestSubscribed = Math.max(...amountSubscribed);
 
   return (
     <div>
+      {/* start of grid cards */}
       <Box sx={{ width: "100%" }} style={{ marginTop: "2rem" }}>
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           <Grid item xs={4}>
@@ -53,6 +60,7 @@ const Grids = ({ data }) => {
           </Grid>
         </Grid>
       </Box>
+      {/* end of grid cards */}
     </div>
   );
 };
