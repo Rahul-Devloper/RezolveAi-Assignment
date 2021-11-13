@@ -1,5 +1,5 @@
 import React from "react";
-import { BarChart, Bar, PieChart, Pie, Tooltip } from "recharts";
+import { PieChart, Pie, Tooltip } from "recharts";
 
 const PieCharts = ({ subscribed }) => {
   return (
