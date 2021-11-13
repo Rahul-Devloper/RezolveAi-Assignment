@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useState, useEffect } from "react";
+import Grids from "./Grids";
+import Navbar from "./Navbar";
+import UserChart from "./UserChart";
 
-function App() {
+const App = () => {
+  let [data, setData] = useState([]);
+  let [subscribed, setSubscribed] = useState([]);
+  useEffect(() => {
+    fetchData();
+    fetchSubs();
+  }, []);
+  const fetchData = () => {
+    fetch(`https://618ecadc50e24d0017ce1463.mockapi.io/user`)
+      .then((response) => response.json())
+      .then((json) => setData(json));
+  };
+
+  console.log(data);
+
+  const fetchSubs = () => {
+    fetch(`https://618ecadc50e24d0017ce1463.mockapi.io/user-subscribed`)
+      .then((response) => response.json())
+      .then((json) => setSubscribed(json));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <Grids data={data} />
+      <UserChart data={data} subscribed={subscribed} />
     </div>
   );
-}
+};
 
 export default App;
